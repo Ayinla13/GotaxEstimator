@@ -1,7 +1,6 @@
 
   # SaaS Dashboard Design
-
-  This is a code bundle for SaaS Dashboard Design. The original project is available at https://www.figma.com/design/sv2OxK0nO7uy2hqGljvlf6/SaaS-Dashboard-Design.
+ This is my first Persoanl prject idea. yay
 
   ## Running the code
 
