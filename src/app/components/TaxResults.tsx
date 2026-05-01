@@ -29,7 +29,7 @@ export function TaxResults({ calculation, businessType }: TaxResultsProps) {
         {/* Main Figures */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
           <div className="bg-slate-50 rounded-lg p-4 sm:p-5 border border-slate-200">
-            <div className="text-xs sm:text-sm text-slate-600 mb-1 sm:mb-2">Estimated Monthly Tax Payable</div>
+            <div className="text-xs sm:text-sm text-slate-600 mb-1 sm:mb-2">Estimated Annual Tax Payable</div>
             <div className="text-slate-900 text-xl sm:text-2xl">
               {formatCurrency(calculation.taxPayable)}
             </div>

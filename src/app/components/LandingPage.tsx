@@ -1,4 +1,5 @@
 import { Calculator, TrendingUp, BarChart3, Shield, ArrowRight, Briefcase, Wallet, Users } from 'lucide-react';
+import { ImageWithFallback } from './figma/ImageWithFallback';
 
 interface LandingPageProps {
   onGetStarted: () => void;
@@ -7,18 +8,79 @@ interface LandingPageProps {
 export function LandingPage({ onGetStarted }: LandingPageProps) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-blue-50">
-      {/* Header */}
+      {/* Navbar */}
       <header className="bg-white/80 backdrop-blur-sm border-b border-slate-200 sticky top-0 z-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
           <div className="flex items-center justify-between">
+            {/* Logo */}
             <div className="flex items-center gap-2 sm:gap-3">
-              <div className="bg-emerald-600 p-1.5 sm:p-2 rounded-lg">
+              <div className="p-1.5 sm:p-2 rounded-lg" style={{ backgroundColor: '#4e6be0' }}>
                 <Calculator className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-slate-900 text-lg sm:text-2xl">GoTax Estimator</h1>
+                <h1 className="text-slate-900 text-lg sm:text-2xl font-semibold">GoTax Estimator</h1>
                 <p className="text-xs text-slate-500">Tax Ready</p>
               </div>
+            </div>
+
+            {/* Navigation Links */}
+            <nav className="hidden md:flex items-center gap-8">
+              <a 
+                href="#features"
+                className="text-slate-600 transition-colors text-sm font-medium"
+                style={{ color: '#4e6be0' }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = '#000000')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = '#4e6be0')}
+              >
+                Features
+              </a>
+              <a 
+                href="#who-is-this-for"
+                className="text-slate-600 transition-colors text-sm font-medium"
+                style={{ color: '#4e6be0' }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = '#000000')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = '#4e6be0')}
+              >
+                Who It's For
+              </a>
+              <button
+                onClick={onGetStarted}
+                className="text-white px-6 py-2 rounded-lg transition-colors text-sm font-medium"
+                style={{
+                  backgroundColor: '#4e6be0',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#d7e416';
+                  e.currentTarget.style.color = '#000000';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = '#4e6be0';
+                  e.currentTarget.style.color = '#ffffff';
+                }}
+              >
+                Get Started
+              </button>
+            </nav>
+
+            {/* Mobile Menu Button */}
+            <div className="md:hidden">
+              <button
+                onClick={onGetStarted}
+                className="text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium"
+                style={{
+                  backgroundColor: '#4e6be0',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#d7e416';
+                  e.currentTarget.style.color = '#000000';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = '#4e6be0';
+                  e.currentTarget.style.color = '#ffffff';
+                }}
+              >
+                Start
+              </button>
             </div>
           </div>
         </div>
@@ -30,7 +92,7 @@ export function LandingPage({ onGetStarted }: LandingPageProps) {
           {/* Left Column - Content */}
           <div className="space-y-8">
             <div className="space-y-4">
-              <div className="inline-block bg-emerald-100 text-emerald-700 px-4 py-2 rounded-full text-sm">
+              <div className="inline-block px-4 py-2 rounded-full text-sm" style={{ backgroundColor: '#7e8fe7', color: '#ffffff' }}>
                 For Small Businesses, Freelancers & Traders
               </div>
               <h2 className="text-slate-900 leading-tight">
@@ -45,7 +107,19 @@ export function LandingPage({ onGetStarted }: LandingPageProps) {
             {/* CTA Button */}
             <button
               onClick={onGetStarted}
-              className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-lg transition-colors flex items-center gap-2 shadow-lg shadow-emerald-200 group"
+              className="text-white px-8 py-4 rounded-lg transition-colors flex items-center gap-2 shadow-lg group"
+              style={{
+                backgroundColor: '#4e6be0',
+                boxShadow: '0 10px 15px -3px rgba(78, 107, 224, 0.2)',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#d7e416';
+                e.currentTarget.style.color = '#000000';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#4e6be0';
+                e.currentTarget.style.color = '#ffffff';
+              }}
             >
               <span className="text-lg">Start Estimating</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -54,11 +128,11 @@ export function LandingPage({ onGetStarted }: LandingPageProps) {
             {/* Trust Indicators */}
             <div className="flex items-center gap-6 pt-4">
               <div className="flex items-center gap-2 text-sm text-slate-600">
-                <Shield className="w-5 h-5 text-emerald-600" />
+                <Shield className="w-5 h-5" style={{ color: '#4e6be0' }} />
                 <span>Free to use</span>
               </div>
               <div className="flex items-center gap-2 text-sm text-slate-600">
-                <Calculator className="w-5 h-5 text-emerald-600" />
+                <Calculator className="w-5 h-5" style={{ color: '#4e6be0' }} />
                 <span>Instant results</span>
               </div>
             </div>
@@ -66,50 +140,16 @@ export function LandingPage({ onGetStarted }: LandingPageProps) {
 
           {/* Right Column - Visual */}
           <div className="relative">
-            {/* Illustration Container */}
-            <div className="bg-gradient-to-br from-emerald-100 to-blue-100 rounded-2xl p-8 lg:p-12 relative overflow-hidden">
-              {/* Decorative Elements */}
-              <div className="absolute top-0 right-0 w-40 h-40 bg-emerald-200/50 rounded-full blur-3xl"></div>
-              <div className="absolute bottom-0 left-0 w-40 h-40 bg-blue-200/50 rounded-full blur-3xl"></div>
-              
-              {/* Main Visual */}
-              <div className="relative z-10 space-y-6">
-                {/* Calculator Icon */}
-                <div className="bg-white rounded-xl p-6 shadow-lg">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-2">
-                      <div className="w-3 h-3 rounded-full bg-red-400"></div>
-                      <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
-                      <div className="w-3 h-3 rounded-full bg-green-400"></div>
-                    </div>
-                  </div>
-                  <div className="space-y-3">
-                    <div className="bg-slate-100 h-3 rounded w-3/4"></div>
-                    <div className="bg-slate-100 h-3 rounded w-full"></div>
-                    <div className="bg-emerald-100 h-8 rounded w-full mt-4"></div>
-                  </div>
-                </div>
-
-                {/* Stats Cards */}
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-white/90 backdrop-blur rounded-lg p-4 shadow">
-                    <TrendingUp className="w-6 h-6 text-emerald-600 mb-2" />
-                    <div className="text-xs text-slate-600">Tax Rate</div>
-                    <div className="text-slate-900">Progressive</div>
-                  </div>
-                  <div className="bg-white/90 backdrop-blur rounded-lg p-4 shadow">
-                    <BarChart3 className="w-6 h-6 text-blue-600 mb-2" />
-                    <div className="text-xs text-slate-600">Breakdown</div>
-                    <div className="text-slate-900">Detailed</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <ImageWithFallback 
+              src="/gotaxhompeage.png"
+              alt="GoTax Estimator Hero"
+              className="w-full rounded-2xl"
+            />
           </div>
         </div>
 
         {/* Features */}
-        <div className="grid md:grid-cols-3 gap-6 mt-20">
+        <div id="features" className="grid md:grid-cols-3 gap-6 mt-20 scroll-mt-20">
           <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
             <div className="bg-emerald-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
               <Calculator className="w-6 h-6 text-emerald-600" />
@@ -142,7 +182,7 @@ export function LandingPage({ onGetStarted }: LandingPageProps) {
         </div>
 
         {/* Who Is This For Section */}
-        <div className="mt-24">
+        <div id="who-is-this-for" className="mt-24 scroll-mt-20">
           <div className="text-center mb-12">
             <div className="inline-block bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm mb-4">
               Who is this for?
@@ -273,7 +313,19 @@ export function LandingPage({ onGetStarted }: LandingPageProps) {
           <div className="mt-12 text-center">
             <button
               onClick={onGetStarted}
-              className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-lg transition-colors inline-flex items-center gap-2 shadow-lg shadow-emerald-200 group"
+              className="text-white px-8 py-4 rounded-lg transition-colors inline-flex items-center gap-2 shadow-lg group"
+              style={{
+                backgroundColor: '#4e6be0',
+                boxShadow: '0 10px 15px -3px rgba(78, 107, 224, 0.2)',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#d7e416';
+                e.currentTarget.style.color = '#000000';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#4e6be0';
+                e.currentTarget.style.color = '#ffffff';
+              }}
             >
               <span className="text-lg">Get Your Tax Estimate Now</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

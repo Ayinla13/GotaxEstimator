@@ -237,7 +237,7 @@ export default function App() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-4 sm:py-5">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 sm:gap-3">
-              <div className="bg-emerald-600 p-1.5 sm:p-2 rounded-lg">
+              <div className="p-1.5 sm:p-2 rounded-lg" style={{ backgroundColor: '#4e6be0' }}>
                 <Calculator className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </div>
               <div>
@@ -263,9 +263,11 @@ export default function App() {
         <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-4 sm:p-6 mb-4 sm:mb-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 sm:gap-3">
-              <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-colors text-sm sm:text-base ${
-                currentStep >= 1 ? 'bg-emerald-600 text-white' : 'bg-slate-200 text-slate-600'
-              }`}>
+              <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-colors text-sm sm:text-base text-white`}
+                style={{
+                  backgroundColor: currentStep >= 1 ? '#4e6be0' : '#e5e7eb',
+                  color: currentStep >= 1 ? '#ffffff' : '#4b5563'
+                }}>
                 {currentStep > 1 ? (
                   <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
@@ -275,21 +277,22 @@ export default function App() {
                 )}
               </div>
               <div className="hidden sm:block">
-                <div className={`text-sm ${currentStep >= 1 ? 'text-emerald-600' : 'text-slate-600'}`}>
+                <div style={{ color: currentStep >= 1 ? '#4e6be0' : '#4b5563' }} className="text-sm">
                   Step 1
                 </div>
                 <div className="text-xs text-slate-500">Income Source</div>
               </div>
             </div>
 
-            <div className={`flex-1 h-1 mx-2 sm:mx-4 rounded-full transition-colors ${
-              currentStep >= 2 ? 'bg-emerald-600' : 'bg-slate-200'
-            }`}></div>
+            <div className={`flex-1 h-1 mx-2 sm:mx-4 rounded-full transition-colors`}
+              style={{ backgroundColor: currentStep >= 2 ? '#4e6be0' : '#e5e7eb' }}></div>
 
             <div className="flex items-center gap-2 sm:gap-3">
-              <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-colors text-sm sm:text-base ${
-                currentStep >= 2 ? 'bg-emerald-600 text-white' : 'bg-slate-200 text-slate-600'
-              }`}>
+              <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-colors text-sm sm:text-base`}
+                style={{
+                  backgroundColor: currentStep >= 2 ? '#4e6be0' : '#e5e7eb',
+                  color: currentStep >= 2 ? '#ffffff' : '#4b5563'
+                }}>
                 {currentStep > 2 ? (
                   <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
@@ -299,25 +302,26 @@ export default function App() {
                 )}
               </div>
               <div className="hidden sm:block">
-                <div className={`text-sm ${currentStep >= 2 ? 'text-emerald-600' : 'text-slate-600'}`}>
+                <div style={{ color: currentStep >= 2 ? '#4e6be0' : '#4b5563' }} className="text-sm">
                   Step 2
                 </div>
                 <div className="text-xs text-slate-500">Income Amount</div>
               </div>
             </div>
 
-            <div className={`flex-1 h-1 mx-2 sm:mx-4 rounded-full transition-colors ${
-              currentStep >= 3 ? 'bg-emerald-600' : 'bg-slate-200'
-            }`}></div>
+            <div className={`flex-1 h-1 mx-2 sm:mx-4 rounded-full transition-colors`}
+              style={{ backgroundColor: currentStep >= 3 ? '#4e6be0' : '#e5e7eb' }}></div>
 
             <div className="flex items-center gap-2 sm:gap-3">
-              <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-colors text-sm sm:text-base ${
-                currentStep >= 3 ? 'bg-emerald-600 text-white' : 'bg-slate-200 text-slate-600'
-              }`}>
+              <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-colors text-sm sm:text-base`}
+                style={{
+                  backgroundColor: currentStep >= 3 ? '#4e6be0' : '#e5e7eb',
+                  color: currentStep >= 3 ? '#ffffff' : '#4b5563'
+                }}>
                 <span>3</span>
               </div>
               <div className="hidden sm:block">
-                <div className={`text-sm ${currentStep >= 3 ? 'text-emerald-600' : 'text-slate-600'}`}>
+                <div style={{ color: currentStep >= 3 ? '#4e6be0' : '#4b5563' }} className="text-sm">
                   Step 3
                 </div>
                 <div className="text-xs text-slate-500">Your Results</div>
@@ -346,7 +350,18 @@ export default function App() {
               <div className="flex justify-end mt-6 sm:mt-8">
                 <button
                   onClick={handleNext}
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg transition-colors flex items-center gap-2 w-full sm:w-auto justify-center"
+                  className="text-white px-6 py-3 rounded-lg transition-colors flex items-center gap-2 w-full sm:w-auto justify-center"
+                  style={{
+                    backgroundColor: '#4e6be0',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = '#d7e416';
+                    e.currentTarget.style.color = '#000000';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = '#4e6be0';
+                    e.currentTarget.style.color = '#ffffff';
+                  }}
                 >
                   <span>Continue</span>
                   <ArrowRight className="w-4 h-4" />
@@ -390,7 +405,22 @@ export default function App() {
                 <button
                   onClick={handleNext}
                   disabled={income <= 0}
-                  className="bg-emerald-600 hover:bg-emerald-700 disabled:bg-slate-300 disabled:cursor-not-allowed text-white px-4 sm:px-6 py-3 rounded-lg transition-colors flex items-center gap-2"
+                  className="text-white px-4 sm:px-6 py-3 rounded-lg transition-colors flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  style={{
+                    backgroundColor: income <= 0 ? '#e5e7eb' : '#4e6be0',
+                  }}
+                  onMouseEnter={(e) => {
+                    if (income > 0) {
+                      e.currentTarget.style.backgroundColor = '#d7e416';
+                      e.currentTarget.style.color = '#000000';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (income > 0) {
+                      e.currentTarget.style.backgroundColor = '#4e6be0';
+                      e.currentTarget.style.color = '#ffffff';
+                    }
+                  }}
                 >
                   <span className="hidden sm:inline">Calculate Tax</span>
                   <span className="sm:hidden">Calculate</span>
@@ -404,8 +434,8 @@ export default function App() {
           {currentStep === 3 && taxCalculation && (
             <div>
               <div className="text-center mb-8">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-emerald-100 rounded-full mb-4">
-                  <svg className="w-8 h-8 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4" style={{ backgroundColor: '#7e8fe7' }}>
+                  <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
@@ -437,7 +467,7 @@ export default function App() {
                 </button>
                 <button
                   onClick={handleStartOver}
-                  className="border border-emerald-600 hover:bg-emerald-50 text-emerald-600 px-4 sm:px-6 py-3 rounded-lg transition-colors text-sm sm:text-base"
+                  className="border border-slate-300 hover:bg-slate-50 text-slate-700 px-4 sm:px-6 py-3 rounded-lg transition-colors text-sm sm:text-base"
                 >
                   <span className="hidden sm:inline">Start New Calculation</span>
                   <span className="sm:hidden">New Calc</span>
@@ -463,7 +493,7 @@ export default function App() {
             {/* Brand Section */}
             <div>
               <div className="flex items-center gap-2 mb-3">
-                <div className="bg-emerald-600 p-1.5 rounded-lg">
+                <div className="p-1.5 rounded-lg" style={{ backgroundColor: '#4e6be0' }}>
                   <Calculator className="w-4 h-4 text-white" />
                 </div>
                 <span className="font-semibold text-slate-900">GoTax Estimator</span>
@@ -478,17 +508,29 @@ export default function App() {
               <h3 className="font-semibold text-slate-900 mb-3">Resources</h3>
               <ul className="space-y-2">
                 <li>
-                  <a href="https://www.firs.gov.ng" target="_blank" rel="noopener noreferrer" className="text-sm text-slate-600 hover:text-emerald-600 transition-colors">
+                  <a href="https://www.firs.gov.ng" target="_blank" rel="noopener noreferrer" className="text-sm text-slate-600 transition-colors"
+                    style={{ color: '#4b5563' }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = '#4e6be0')}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = '#4b5563')}
+                  >
                     FIRS Official Website
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.firs.gov.ng/tax-management/tax-laws" target="_blank" rel="noopener noreferrer" className="text-sm text-slate-600 hover:text-emerald-600 transition-colors">
+                  <a href="https://www.firs.gov.ng/tax-management/tax-laws" target="_blank" rel="noopener noreferrer" className="text-sm text-slate-600 transition-colors"
+                    style={{ color: '#4b5563' }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = '#4e6be0')}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = '#4b5563')}
+                  >
                     Nigerian Tax Laws
                   </a>
                 </li>
                 <li>
-                  <button onClick={() => setShowCalculator(false)} className="text-sm text-slate-600 hover:text-emerald-600 transition-colors">
+                  <button onClick={() => setShowCalculator(false)} className="text-sm text-slate-600 transition-colors"
+                    style={{ color: '#4b5563' }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = '#4e6be0')}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = '#4b5563')}
+                  >
                     About GoTax
                   </button>
                 </li>
@@ -500,15 +542,15 @@ export default function App() {
               <h3 className="font-semibold text-slate-900 mb-3">Tax Types</h3>
               <ul className="space-y-2 text-sm text-slate-600">
                 <li className="flex items-start gap-2">
-                  <span className="text-emerald-600 mt-0.5">•</span>
+                  <span style={{ color: '#4e6be0' }} className="mt-0.5">•</span>
                   <span>Personal Income Tax (PIT) - 7-24%</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-emerald-600 mt-0.5">•</span>
+                  <span style={{ color: '#4e6be0' }} className="mt-0.5">•</span>
                   <span>Company Income Tax (CIT) - 0-30%</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-emerald-600 mt-0.5">•</span>
+                  <span style={{ color: '#4e6be0' }} className="mt-0.5">•</span>
                   <span>Small Company Exemption</span>
                 </li>
               </ul>
