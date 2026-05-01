@@ -237,15 +237,18 @@ export default function App() {
       <header className="bg-white border-b border-slate-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-4 sm:py-5">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2 sm:gap-3">
+            <button
+              onClick={() => setShowCalculator(false)}
+              className="flex items-center gap-2 sm:gap-3 hover:opacity-80 transition-opacity"
+            >
               <div className="p-1.5 sm:p-2 rounded-lg" style={{ backgroundColor: '#4e6be0' }}>
                 <Calculator className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </div>
-              <div>
+              <div className="text-left">
                 <h1 className="text-slate-900 text-lg sm:text-2xl">GoTax Estimator</h1>
                 <p className="text-xs sm:text-sm text-slate-500">For Small Businesses, Freelancers & Traders</p>
               </div>
-            </div>
+            </button>
             <button
               onClick={() => setShowCalculator(false)}
               className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors"

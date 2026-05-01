@@ -1,5 +1,6 @@
 import { Calculator, TrendingUp, BarChart3, Shield, ArrowRight, Briefcase, Wallet, Users } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import { Footer } from './Footer';
 
 interface LandingPageProps {
   onGetStarted: () => void;
@@ -13,15 +14,17 @@ export function LandingPage({ onGetStarted }: LandingPageProps) {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <div className="flex items-center gap-2 sm:gap-3">
-              <div className="p-1.5 sm:p-2 rounded-lg" style={{ backgroundColor: '#4e6be0' }}>
-                <Calculator className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-              </div>
-              <div>
-                <h1 className="text-slate-900 text-lg sm:text-2xl font-semibold">GoTax Estimator</h1>
-                <p className="text-xs text-slate-500">Tax Ready</p>
-              </div>
-            </div>
+          <a href="/" className="flex items-center gap-2 sm:gap-3">
+  <div className="flex items-center gap-2 sm:gap-3">
+    <div className="p-1.5 sm:p-2 rounded-lg" style={{ backgroundColor: '#4e6be0' }}>
+      <Calculator className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+    </div>
+    <div>
+      <h1 className="text-slate-900 text-lg sm:text-2xl font-semibold">GoTax Estimator</h1>
+      <p className="text-xs text-slate-500">Tax Ready</p>
+    </div>
+  </div>
+</a>
 
             {/* Navigation Links */}
             <nav className="hidden md:flex items-center gap-8">
@@ -344,6 +347,9 @@ export function LandingPage({ onGetStarted }: LandingPageProps) {
           </p>
         </div>
       </footer>
+
+      {/* Footer Component */}
+      <Footer onNavigate={onGetStarted} />
     </div>
   );
 }
