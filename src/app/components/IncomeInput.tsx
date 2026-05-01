@@ -30,7 +30,7 @@ export function IncomeInput({ value, onChange }: IncomeInputProps) {
           value={formatNumber(value)}
           onChange={handleChange}
           placeholder="Enter your monthly income"
-          className="w-full pl-10 pr-4 py-4 border-2 border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-xl"
+          className="w-full pl-10 pr-4 py-4 border-2 border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent text-xl"
         />
       </div>
       <p className="text-sm text-slate-500 mt-2">
