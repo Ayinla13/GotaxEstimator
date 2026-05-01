@@ -81,7 +81,7 @@ export function DeductiblesInput({ values, onChange }: DeductiblesInputProps) {
           id="has-deductibles"
           checked={hasDeductibles}
           onChange={(e) => handleCheckboxChange(e.target.checked)}
-          className="mt-1 w-4 h-4 text-emerald-600 bg-white border-slate-300 rounded focus:ring-emerald-500 focus:ring-2"
+          className="mt-1 w-4 h-4 text-accent-600 bg-white border-slate-300 rounded focus:ring-accent-500 focus:ring-2"
         />
         <label htmlFor="has-deductibles" className="flex-1 cursor-pointer">
           <div className="text-slate-900">
@@ -112,7 +112,7 @@ export function DeductiblesInput({ values, onChange }: DeductiblesInputProps) {
                     value={formatNumber(values[key as keyof Deductibles])}
                     onChange={(e) => handleChange(key as keyof Deductibles, e.target.value)}
                     placeholder="0"
-                    className="w-full pl-8 pr-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                    className="w-full pl-8 pr-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent"
                   />
                 </div>
                 <div className="text-xs text-slate-500 mt-1">{description}</div>
@@ -124,7 +124,7 @@ export function DeductiblesInput({ values, onChange }: DeductiblesInputProps) {
             <div className="mt-4 pt-4 border-t border-slate-200">
               <div className="flex justify-between items-center">
                 <span className="text-slate-700">Total Deductions:</span>
-                <span className="text-emerald-600">
+                <span className="text-accent-600">
                   ₦{totalDeductions.toLocaleString()}
                 </span>
               </div>

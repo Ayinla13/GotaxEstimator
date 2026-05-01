@@ -20,20 +20,20 @@ export function IncomeSourceSelector({ value, onChange }: IncomeSourceSelectorPr
           onClick={() => onChange('salary')}
           className={`flex flex-col items-center gap-3 p-5 rounded-lg border-2 transition-all relative ${
             value === 'salary'
-              ? 'border-emerald-500 bg-emerald-50'
+              ? 'border-border-color bg-accent-50'
               : 'border-slate-200 bg-white hover:border-slate-300'
           }`}
         >
           <div className={`p-3 rounded-lg ${
-            value === 'salary' ? 'bg-emerald-100' : 'bg-slate-100'
+            value === 'salary' ? 'bg-accent-100' : 'bg-slate-100'
           }`}>
             <Users className={`w-7 h-7 ${
-              value === 'salary' ? 'text-emerald-600' : 'text-slate-600'
+              value === 'salary' ? 'text-accent-600' : 'text-slate-600'
             }`} />
           </div>
           <div className="text-center">
             <div className={`${
-              value === 'salary' ? 'text-emerald-900' : 'text-slate-900'
+              value === 'salary' ? 'text-accent-900' : 'text-slate-900'
             }`}>
               Salary Earner
             </div>
@@ -42,7 +42,7 @@ export function IncomeSourceSelector({ value, onChange }: IncomeSourceSelectorPr
             </div>
           </div>
           {value === 'salary' && (
-            <div className="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center absolute top-3 right-3">
+            <div className="w-5 h-5 rounded-full bg-accent-500 flex items-center justify-center absolute top-3 right-3">
               <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
               </svg>
@@ -56,20 +56,20 @@ export function IncomeSourceSelector({ value, onChange }: IncomeSourceSelectorPr
           onClick={() => onChange('freelancer')}
           className={`flex flex-col items-center gap-3 p-5 rounded-lg border-2 transition-all relative ${
             value === 'freelancer'
-              ? 'border-emerald-500 bg-emerald-50'
+              ? 'border-border-color bg-accent-50'
               : 'border-slate-200 bg-white hover:border-slate-300'
           }`}
         >
           <div className={`p-3 rounded-lg ${
-            value === 'freelancer' ? 'bg-emerald-100' : 'bg-slate-100'
+            value === 'freelancer' ? 'bg-accent-100' : 'bg-slate-100'
           }`}>
             <Wallet className={`w-7 h-7 ${
-              value === 'freelancer' ? 'text-emerald-600' : 'text-slate-600'
+              value === 'freelancer' ? 'text-accent-600' : 'text-slate-600'
             }`} />
           </div>
           <div className="text-center">
             <div className={`${
-              value === 'freelancer' ? 'text-emerald-900' : 'text-slate-900'
+              value === 'freelancer' ? 'text-accent-900' : 'text-slate-900'
             }`}>
               Freelancer
             </div>
@@ -78,7 +78,7 @@ export function IncomeSourceSelector({ value, onChange }: IncomeSourceSelectorPr
             </div>
           </div>
           {value === 'freelancer' && (
-            <div className="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center absolute top-3 right-3">
+            <div className="w-5 h-5 rounded-full bg-accent-500 flex items-center justify-center absolute top-3 right-3">
               <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
               </svg>
@@ -92,20 +92,20 @@ export function IncomeSourceSelector({ value, onChange }: IncomeSourceSelectorPr
           onClick={() => onChange('business')}
           className={`flex flex-col items-center gap-3 p-5 rounded-lg border-2 transition-all relative ${
             value === 'business'
-              ? 'border-emerald-500 bg-emerald-50'
+              ? 'border-border-color bg-accent-50'
               : 'border-slate-200 bg-white hover:border-slate-300'
           }`}
         >
           <div className={`p-3 rounded-lg ${
-            value === 'business' ? 'bg-emerald-100' : 'bg-slate-100'
+            value === 'business' ? 'bg-accent-100' : 'bg-slate-100'
           }`}>
             <Briefcase className={`w-7 h-7 ${
-              value === 'business' ? 'text-emerald-600' : 'text-slate-600'
+              value === 'business' ? 'text-accent-600' : 'text-slate-600'
             }`} />
           </div>
           <div className="text-center">
             <div className={`${
-              value === 'business' ? 'text-emerald-900' : 'text-slate-900'
+              value === 'business' ? 'text-accent-900' : 'text-slate-900'
             }`}>
               Business Owner
             </div>
@@ -114,7 +114,7 @@ export function IncomeSourceSelector({ value, onChange }: IncomeSourceSelectorPr
             </div>
           </div>
           {value === 'business' && (
-            <div className="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center absolute top-3 right-3">
+            <div className="w-5 h-5 rounded-full bg-accent-500 flex items-center justify-center absolute top-3 right-3">
               <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
               </svg>

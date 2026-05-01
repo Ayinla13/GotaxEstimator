@@ -39,6 +39,14 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  --border-color: #526fe3;
+  --accent-color: #b9c0e6;
+  --accent-50:  #f0f0fd; /* for light background fills */
+  --accent-100:  #dce3fc; /* for icon containers */
+  --accent-500: #356bc8; /* for checkmark circle */
+  --accent-600: #1d3699; /* for icon colors */
+  --accent-900: #001a84; /* For big backgrounds */
 }
 
 .dark {
@@ -76,6 +84,13 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.269 0 0);
   --sidebar-ring: oklch(0.439 0 0);
+  --border-color: #526fe3;
+  --accent-color: #b9c0e6;
+  --accent-50: #f0fdf4;
+  --accent-100: #dcfce7;
+  --accent-500: #10b981;
+  --accent-600: #059669;
+  --accent-900: #064e3b;
 }
 
 @theme inline {
@@ -117,6 +132,13 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-border-color: var(--border-color);
+  --color-accent-color: var(--accent-color);
+  --color-accent-50: var(--accent-50);
+  --color-accent-100: var(--accent-100);
+  --color-accent-500: var(--accent-500);
+  --color-accent-600: var(--accent-600);
+  --color-accent-900: var(--accent-900);
 }
 
 @layer base {

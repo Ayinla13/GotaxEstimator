@@ -14,12 +14,12 @@ export function TaxResults({ calculation, businessType }: TaxResultsProps) {
   return (
     <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
       {/* Header */}
-      <div className="bg-gradient-to-r from-emerald-600 to-emerald-700 px-4 sm:px-6 py-4 sm:py-5">
+      <div className="bg-accent-600 px-4 sm:px-6 py-4 sm:py-5">
         <h2 className="text-white flex items-center gap-2 text-lg sm:text-2xl">
           <FileText className="w-4 h-4 sm:w-5 sm:h-5" />
           Tax Calculation Results
         </h2>
-        <p className="text-emerald-100 text-xs sm:text-sm mt-1">
+        <p className="text-accent-100 text-xs sm:text-sm mt-1">
           {businessType === 'personal' ? 'Personal Income Tax (PIT)' : 'Company Income Tax (CIT)'}
         </p>
       </div>
@@ -37,12 +37,12 @@ export function TaxResults({ calculation, businessType }: TaxResultsProps) {
               Based on annualized income
             </div>
           </div>
-          <div className="bg-emerald-50 rounded-lg p-4 sm:p-5 border border-emerald-200">
-            <div className="text-xs sm:text-sm text-emerald-700 mb-1 sm:mb-2 flex items-center gap-1">
+          <div className="bg-accent-50 rounded-lg p-4 sm:p-5 border border-accent-200">
+            <div className="text-xs sm:text-sm text-black mb-1 sm:mb-2 flex items-center gap-1">
               <Percent className="w-3 h-3 sm:w-4 sm:h-4" />
               Effective Tax Rate
             </div>
-            <div className="text-emerald-900 text-xl sm:text-2xl">
+            <div className="text-accent-900 text-xl sm:text-2xl">
               {calculation.effectiveRate.toFixed(2)}%
             </div>
           </div>

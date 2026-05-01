@@ -18,20 +18,20 @@ export function BusinessTypeSelector({ value, onChange }: BusinessTypeSelectorPr
           onClick={() => onChange('personal')}
           className={`w-full flex items-start gap-3 p-4 rounded-lg border-2 transition-all ${
             value === 'personal'
-              ? 'border-emerald-500 bg-emerald-50'
+              ? 'border-border-color bg-accent-color'
               : 'border-slate-200 bg-white hover:border-slate-300'
           }`}
         >
           <div className={`p-2 rounded-lg ${
-            value === 'personal' ? 'bg-emerald-100' : 'bg-slate-100'
+            value === 'personal' ? 'bg-accent-100' : 'bg-slate-100'
           }`}>
             <User className={`w-5 h-5 ${
-              value === 'personal' ? 'text-emerald-600' : 'text-slate-600'
+              value === 'personal' ? 'text-accent-600' : 'text-slate-600'
             }`} />
           </div>
           <div className="flex-1 text-left">
             <div className={`${
-              value === 'personal' ? 'text-emerald-900' : 'text-slate-900'
+              value === 'personal' ? 'text-accent-900' : 'text-slate-900'
             }`}>
               Sole Proprietorship / Business Name
             </div>
@@ -40,7 +40,7 @@ export function BusinessTypeSelector({ value, onChange }: BusinessTypeSelectorPr
             </div>
           </div>
           {value === 'personal' && (
-            <div className="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center flex-shrink-0">
+            <div className="w-5 h-5 rounded-full bg-accent-500 flex items-center justify-center flex-shrink-0">
               <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
               </svg>
@@ -53,20 +53,20 @@ export function BusinessTypeSelector({ value, onChange }: BusinessTypeSelectorPr
           onClick={() => onChange('limited')}
           className={`w-full flex items-start gap-3 p-4 rounded-lg border-2 transition-all ${
             value === 'limited'
-              ? 'border-emerald-500 bg-emerald-50'
+              ? 'border-border-color bg-accent-50'
               : 'border-slate-200 bg-white hover:border-slate-300'
           }`}
         >
           <div className={`p-2 rounded-lg ${
-            value === 'limited' ? 'bg-emerald-100' : 'bg-slate-100'
+            value === 'limited' ? 'bg-accent-100' : 'bg-slate-100'
           }`}>
             <Building2 className={`w-5 h-5 ${
-              value === 'limited' ? 'text-emerald-600' : 'text-slate-600'
+              value === 'limited' ? 'text-accent-600' : 'text-slate-600'
             }`} />
           </div>
           <div className="flex-1 text-left">
             <div className={`${
-              value === 'limited' ? 'text-emerald-900' : 'text-slate-900'
+              value === 'limited' ? 'text-accent-900' : 'text-slate-900'
             }`}>
               Limited Company
             </div>
@@ -75,7 +75,7 @@ export function BusinessTypeSelector({ value, onChange }: BusinessTypeSelectorPr
             </div>
           </div>
           {value === 'limited' && (
-            <div className="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center flex-shrink-0">
+            <div className="w-5 h-5 rounded-full bg-accent-500 flex items-center justify-center flex-shrink-0">
               <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
               </svg>
