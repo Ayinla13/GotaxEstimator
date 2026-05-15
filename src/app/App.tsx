@@ -245,8 +245,8 @@ export default function App() {
                 <Calculator className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </div>
               <div className="text-left">
-                <h1 className="text-slate-900 text-lg sm:text-2xl">GoTax Estimator</h1>
-                <p className="text-xs sm:text-sm text-slate-500">For Small Businesses, Freelancers & Traders</p>
+                <h1 className="text-slate-900 text-lg sm:text-2xl"> GoTax Estimator – Nigeria Tax Calculator </h1>
+                <p className="text-xs sm:text-sm text-slate-500">Estimate PAYE, freelance, and business taxes instantly</p>
               </div>
             </button>
             <button

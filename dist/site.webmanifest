@@ -1,0 +1,31 @@
+{
+  "name": "GoTax Estimator - Nigeria Tax Calculator",
+  "short_name": "GoTax Estimator",
+  "description": "Free Nigeria tax calculator for accurate PAYE, CIT, and VAT estimates",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#4e6be0",
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["finance", "productivity"]
+}

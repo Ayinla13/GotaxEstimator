@@ -20,8 +20,8 @@ export function LandingPage({ onGetStarted }: LandingPageProps) {
       <Calculator className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
     </div>
     <div>
-      <h1 className="text-slate-900 text-lg sm:text-2xl font-semibold">GoTax Estimator</h1>
-      <p className="text-xs text-slate-500">Tax Ready</p>
+      <h1 className="text-slate-900 text-lg sm:text-2xl font-semibold"> GoTax Estimator – Nigeria Tax Calculator </h1>
+      <p className="text-xs text-slate-500">Estimate PAYE, freelance, and business taxes instantly</p>
     </div>
   </div>
 </a>
@@ -90,7 +90,7 @@ export function LandingPage({ onGetStarted }: LandingPageProps) {
       </header>
 
       {/* Hero Section */}
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12 lg:py-16">
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 py-4 sm:py-6 lg:py-8">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Column - Content */}
           <div className="space-y-8">
@@ -152,7 +152,7 @@ export function LandingPage({ onGetStarted }: LandingPageProps) {
         </div>
 
         {/* Features */}
-        <div id="features" className="grid md:grid-cols-3 gap-6 mt-20 scroll-mt-20">
+        <div id="features" className="grid md:grid-cols-3 gap-6 mt-12 scroll-mt-20">
           <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
             <div className="bg-emerald-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
               <Calculator className="w-6 h-6 text-emerald-600" />

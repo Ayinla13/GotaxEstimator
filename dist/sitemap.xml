@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0">
+    <url>
+        <loc>https://www.gotaxestimator.com/</loc>
+        <lastmod>2026-05-15T00:00:00+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://www.gotaxestimator.com/preview.png</image:loc>
+            <image:title>GoTax Estimator - Nigeria Tax Calculator</image:title>
+            <image:caption>Free tool to calculate Nigerian taxes and PAYE</image:caption>
+        </image:image>
+        <mobile:mobile/>
+    </url>
+</urlset>
