@@ -1,4 +1,5 @@
 import { Calculator, TrendingUp, BarChart3, Shield, ArrowRight, Briefcase, Wallet, Users } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { Footer } from './Footer';
 
@@ -46,6 +47,15 @@ export function LandingPage({ onGetStarted }: LandingPageProps) {
               >
                 Who It's For
               </a>
+              <Link
+                to="/blog"
+                className="text-slate-600 transition-colors text-sm font-medium"
+                style={{ color: '#4e6be0' }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = '#000000')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = '#4e6be0')}
+              >
+                Blog
+              </Link>
               <button
                 onClick={onGetStarted}
                 className="text-white px-6 py-2 rounded-lg transition-colors text-sm font-medium"
@@ -65,8 +75,14 @@ export function LandingPage({ onGetStarted }: LandingPageProps) {
               </button>
             </nav>
 
-            {/* Mobile Menu Button */}
-            <div className="md:hidden">
+            {/* Mobile Menu Buttons */}
+            <div className="flex items-center gap-2 md:hidden">
+              <Link
+                to="/blog"
+                className="rounded-lg border border-slate-200 px-3 py-2 text-sm font-medium text-slate-700 transition-colors hover:border-blue-600 hover:text-blue-600"
+              >
+                Blog
+              </Link>
               <button
                 onClick={onGetStarted}
                 className="text-white px-4 py-2 rounded-lg transition-colors text-sm font-medium"

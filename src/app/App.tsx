@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { Calculator, TrendingUp, Info, Lightbulb, ArrowLeft, ArrowRight } from 'lucide-react';
+import { Link, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { TaxResults } from './components/TaxResults';
 import { IncomeInput } from './components/IncomeInput';
 import { BusinessTypeSelector } from './components/BusinessTypeSelector';
@@ -10,6 +11,8 @@ import { LandingPage } from './components/LandingPage';
 import { DeductiblesInput, type Deductibles } from './components/DeductiblesInput';
 import { TurnoverSelector, type TurnoverBracket } from './components/TurnoverSelector';
 import { Footer } from './components/Footer';
+import { BlogPage } from './components/BlogPage';
+import { BlogArticlePage } from './components/BlogArticlePage';
 import Payeguide from '../Pages/Payeguide';
 
 
@@ -144,7 +147,9 @@ function calculateBIT(grossIncome: number, deductions: number = 0, turnoverBrack
 }
 
 export default function App() {
-  const [showCalculator, setShowCalculator] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [showCalculator, setShowCalculator] = useState(location.pathname === '/calculate');
   const [currentStep, setCurrentStep] = useState(1);
   const [income, setIncome] = useState<number>(0);
   const [incomeSource, setIncomeSource] = useState<IncomeSource>('salary');
@@ -169,15 +174,23 @@ export default function App() {
   }, [deductibles]);
 
   const taxCalculation = useMemo(() => {
-    if (income <= 0 || businessType === null) return null;
-    if (businessType === 'limited' && turnoverBracket === null) return null;
+    if (income <= 0) return null;
+
+    if (incomeSource === 'business') {
+      if (businessType === null) return null;
+      if (businessType === 'limited' && turnoverBracket === null) return null;
+    }
+
     // Convert monthly income to annual income
     const annualIncome = income * 12;
     const annualDeductions = totalDeductions * 12;
     // Only apply deductions for business owners, not salary earners or freelancers
     const applicableDeductions = incomeSource === 'business' ? annualDeductions : 0;
-    const result = businessType === 'personal' ? calculatePIT(annualIncome, applicableDeductions) : calculateBIT(annualIncome, applicableDeductions, turnoverBracket as TurnoverBracket);
-    
+    const selectedBusinessType = businessType ?? 'personal';
+    const result = selectedBusinessType === 'personal'
+      ? calculatePIT(annualIncome, applicableDeductions)
+      : calculateBIT(annualIncome, applicableDeductions, turnoverBracket as TurnoverBracket);
+
     // Convert annual tax to monthly tax for display
     if (result) {
       return {
@@ -195,9 +208,24 @@ export default function App() {
     return result;
   }, [income, businessType, totalDeductions, incomeSource, turnoverBracket]);
 
+  const isBlogRoute = location.pathname === '/blog' || location.pathname.startsWith('/blog/');
+  const isCalculatorRoute = location.pathname === '/calculate' || showCalculator;
+
+  if (isBlogRoute) {
+    return (
+      <Routes>
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:slug" element={<BlogArticlePage />} />
+      </Routes>
+    );
+  }
+
   // Show landing page first
-  if (!showCalculator) {
-    return <LandingPage onGetStarted={() => setShowCalculator(true)} />;
+  if (!isCalculatorRoute) {
+    return <LandingPage onGetStarted={() => {
+      setShowCalculator(true);
+      navigate('/calculate');
+    }} />;
   }
 
   const handleNext = () => {
@@ -242,7 +270,10 @@ export default function App() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-4 sm:py-5">
           <div className="flex items-center justify-between">
             <button
-              onClick={() => setShowCalculator(false)}
+              onClick={() => {
+                setShowCalculator(false);
+                navigate('/');
+              }}
               className="flex items-center gap-2 sm:gap-3 hover:opacity-80 transition-opacity"
             >
               <div className="p-1.5 sm:p-2 rounded-lg" style={{ backgroundColor: '#4e6be0' }}>
@@ -253,14 +284,25 @@ export default function App() {
                 <p className="text-xs sm:text-sm text-slate-500">Estimate PAYE, freelance, and business taxes instantly</p>
               </div>
             </button>
-            <button
-              onClick={() => setShowCalculator(false)}
-              className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors"
-            >
-              <ArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-              <span className="hidden sm:inline">Back to Home</span>
-              <span className="sm:hidden">Home</span>
-            </button>
+            <div className="flex items-center gap-3">
+              <Link
+                to="/blog"
+                className="text-sm font-medium text-slate-600 transition-colors hover:text-blue-600"
+              >
+                Blog
+              </Link>
+              <button
+                onClick={() => {
+                  setShowCalculator(false);
+                  navigate('/');
+                }}
+                className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-slate-600 hover:text-slate-900 transition-colors"
+              >
+                <ArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                <span className="hidden sm:inline">Back to Home</span>
+                <span className="sm:hidden">Home</span>
+              </button>
+            </div>
           </div>
         </div>
       </header>
@@ -439,30 +481,52 @@ export default function App() {
           )}
 
           {/* Step 3: Results */}
-          {currentStep === 3 && taxCalculation && (
+          {currentStep === 3 && (
             <div>
-              <div className="text-center mb-8">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4" style={{ backgroundColor: '#7e8fe7' }}>
-                  <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h2 className="text-slate-900 mb-2">Your Tax Estimate</h2>
-                <p className="text-slate-600">
-                  Here's a breakdown of your estimated tax liability
-                </p>
-              </div>
+              {taxCalculation ? (
+                <>
+                  <div className="text-center mb-8">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4" style={{ backgroundColor: '#7e8fe7' }}>
+                      <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <h2 className="text-slate-900 mb-2">Your Tax Estimate</h2>
+                    <p className="text-slate-600">
+                      Here's a breakdown of your estimated tax liability
+                    </p>
+                  </div>
 
-              <div className="space-y-6">
-                <TaxResults calculation={taxCalculation} businessType={businessType} />
-                <Recommendations 
-                  income={income} 
-                  businessType={businessType} 
-                  incomeSource={incomeSource}
-                  effectiveRate={taxCalculation.effectiveRate}
-                />
-                <TaxBreakdown calculation={taxCalculation} />
-              </div>
+                  <div className="space-y-6">
+                    <TaxResults calculation={taxCalculation} businessType={businessType ?? 'personal'} />
+                    <Recommendations 
+                      income={income} 
+                      businessType={businessType ?? 'personal'} 
+                      incomeSource={incomeSource}
+                      effectiveRate={taxCalculation.effectiveRate}
+                    />
+                    <TaxBreakdown calculation={taxCalculation} />
+                  </div>
+                </>
+              ) : (
+                <div className="text-center py-8">
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4 bg-amber-100">
+                    <svg className="w-8 h-8 text-amber-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                  </div>
+                  <h2 className="text-slate-900 mb-2">We need a little more information</h2>
+                  <p className="text-slate-600 mb-6">
+                    Please complete the required business details before we can calculate your estimate.
+                  </p>
+                  <button
+                    onClick={handleBack}
+                    className="border border-slate-300 hover:bg-slate-50 text-slate-700 px-4 sm:px-6 py-3 rounded-lg transition-colors"
+                  >
+                    Go back and complete the form
+                  </button>
+                </div>
+              )}
 
               <div className="flex justify-between mt-8">
                 <button

@@ -23,7 +23,7 @@ export function Recommendations({ income, businessType, incomeSource, effectiveR
     }
     
     // For freelancers with high tax rate
-    if (incomeSource === 'freelance') {
+    if (incomeSource === 'freelancer') {
       recommendations.push({
         icon: <TrendingDown className="w-5 h-5 text-indigo-600" />,
         text: 'Your tax rate is high. Consider registering a business name to unlock business expense deductions and better structure your freelance operations for tax efficiency.',
