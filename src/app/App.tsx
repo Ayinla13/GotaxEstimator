@@ -10,6 +10,9 @@ import { LandingPage } from './components/LandingPage';
 import { DeductiblesInput, type Deductibles } from './components/DeductiblesInput';
 import { TurnoverSelector, type TurnoverBracket } from './components/TurnoverSelector';
 import { Footer } from './components/Footer';
+import Payeguide from '../Pages/Payeguide';
+
+
 
 export type BusinessType = 'personal' | 'limited' | null;
 
