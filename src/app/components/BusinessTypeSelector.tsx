@@ -2,7 +2,7 @@ import { Building2, User } from 'lucide-react';
 import type { BusinessType } from '../App';
 
 interface BusinessTypeSelectorProps {
-  value: BusinessType;
+  value: BusinessType | null;
   onChange: (value: BusinessType) => void;
 }
 

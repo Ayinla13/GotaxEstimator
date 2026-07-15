@@ -1,9 +1,9 @@
 import { Building, Building2, TrendingUp } from 'lucide-react';
 
-export type TurnoverBracket = 'small' | 'medium' | 'large';
+export type TurnoverBracket = 'small' | 'medium' | 'large' | null;
 
 interface TurnoverSelectorProps {
-  value: TurnoverBracket;
+  value: TurnoverBracket | null;
   onChange: (value: TurnoverBracket) => void;
 }
 

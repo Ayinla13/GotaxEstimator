@@ -11,7 +11,7 @@ import { DeductiblesInput, type Deductibles } from './components/DeductiblesInpu
 import { TurnoverSelector, type TurnoverBracket } from './components/TurnoverSelector';
 import { Footer } from './components/Footer';
 
-export type BusinessType = 'personal' | 'limited';
+export type BusinessType = 'personal' | 'limited' | null;
 
 export interface TaxCalculation {
   taxPayable: number;
@@ -145,7 +145,7 @@ export default function App() {
   const [currentStep, setCurrentStep] = useState(1);
   const [income, setIncome] = useState<number>(0);
   const [incomeSource, setIncomeSource] = useState<IncomeSource>('salary');
-  const [businessType, setBusinessType] = useState<BusinessType>('personal');
+  const [businessType, setBusinessType] = useState<BusinessType>(null);
   const [deductibles, setDeductibles] = useState<Deductibles>({
     rent: 0,
     transport: 0,
@@ -159,20 +159,21 @@ export default function App() {
     subscriptions: 0,
     depreciation: 0,
   });
-  const [turnoverBracket, setTurnoverBracket] = useState<TurnoverBracket>('small');
+  const [turnoverBracket, setTurnoverBracket] = useState<TurnoverBracket>(null);
 
   const totalDeductions = useMemo(() => {
     return Object.values(deductibles).reduce((sum, val) => sum + val, 0);
   }, [deductibles]);
 
   const taxCalculation = useMemo(() => {
-    if (income <= 0) return null;
+    if (income <= 0 || businessType === null) return null;
+    if (businessType === 'limited' && turnoverBracket === null) return null;
     // Convert monthly income to annual income
     const annualIncome = income * 12;
     const annualDeductions = totalDeductions * 12;
     // Only apply deductions for business owners, not salary earners or freelancers
     const applicableDeductions = incomeSource === 'business' ? annualDeductions : 0;
-    const result = businessType === 'personal' ? calculatePIT(annualIncome, applicableDeductions) : calculateBIT(annualIncome, applicableDeductions, turnoverBracket);
+    const result = businessType === 'personal' ? calculatePIT(annualIncome, applicableDeductions) : calculateBIT(annualIncome, applicableDeductions, turnoverBracket as TurnoverBracket);
     
     // Convert annual tax to monthly tax for display
     if (result) {
@@ -214,7 +215,7 @@ export default function App() {
     setCurrentStep(1);
     setIncome(0);
     setIncomeSource('salary');
-    setBusinessType('personal');
+    setBusinessType(null);
     setDeductibles({
       rent: 0,
       transport: 0,
@@ -228,7 +229,7 @@ export default function App() {
       subscriptions: 0,
       depreciation: 0,
     });
-    setTurnoverBracket('small');
+    setTurnoverBracket(null);
   };
 
   return (
